@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Clock, AlertCircle } from 'lucide-react';
 import { format } from 'date-fns';
-import type { AvailabilitySlot } from '@/types';
+import type { AvailableSlot } from '@/types';
 
 interface TimeSlotGridProps {
   barberId: number;
@@ -20,7 +20,7 @@ export default function TimeSlotGrid({
   selectedTime,
   onSelect,
 }: TimeSlotGridProps) {
-  const [slots, setSlots] = useState<AvailabilitySlot[]>([]);
+  const [slots, setSlots] = useState<AvailableSlot[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
@@ -88,7 +88,7 @@ export default function TimeSlotGrid({
     if (!acc[period]) acc[period] = [];
     acc[period].push(slot);
     return acc;
-  }, {} as Record<string, AvailabilitySlot[]>);
+  }, {} as Record<string, AvailableSlot[]>);
 
   const periodTitles = {
     morning: 'Morning',
