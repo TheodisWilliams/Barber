@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install)",
+      "Bash(npx create-strapi-app@latest:*)",
+      "Bash(npx:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run develop:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(taskkill:*)",
+      "Bash(taskkill /PID 6224 /F)",
+      "Bash(wmic process:*)",
+      "Bash(tasklist:*)",
+      "Bash(cat:*)",
+      "Bash(for dir in appointment service shop-info testimonial schedule-exception)",
+      "Bash(do mkdir -p src/api/$dir/content-types/$dir)",
+      "Bash(done)",
+      "Bash(if exist \"CLAUDE.md\" del \"CLAUDE.md\")",
+      "Bash(git init:*)",
+      "Bash(git remote add:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
