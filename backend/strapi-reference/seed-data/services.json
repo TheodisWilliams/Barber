@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Signature Cut",
+    "slug": "signature-cut",
+    "description": "Our premium haircut service includes consultation, precision cut, neck shave, and styling. Tailored to your unique style.",
+    "durationMinutes": 45,
+    "price": 45,
+    "isActive": true,
+    "order": 1,
+    "category": "haircut"
+  },
+  {
+    "name": "Fade & Line Up",
+    "slug": "fade-line-up",
+    "description": "Expert fade with crisp line-up and edge work. Includes consultation, cut, neck shave, and styling.",
+    "durationMinutes": 60,
+    "price": 50,
+    "isActive": true,
+    "order": 2,
+    "category": "haircut"
+  },
+  {
+    "name": "Kids Cut (12 & Under)",
+    "slug": "kids-cut",
+    "description": "Professional haircut for children 12 and under. Patient and experienced barbers who work great with kids.",
+    "durationMinutes": 30,
+    "price": 35,
+    "isActive": true,
+    "order": 3,
+    "category": "haircut"
+  },
+  {
+    "name": "Beard Trim & Shape",
+    "slug": "beard-trim-shape",
+    "description": "Precision beard trimming and shaping to complement your style. Includes hot towel and conditioning treatment.",
+    "durationMinutes": 30,
+    "price": 30,
+    "isActive": true,
+    "order": 4,
+    "category": "shave"
+  },
+  {
+    "name": "Hot Towel Shave",
+    "slug": "hot-towel-shave",
+    "description": "Traditional straight razor shave with hot towel treatment, pre-shave oil, and post-shave balm. The ultimate relaxation experience.",
+    "durationMinutes": 45,
+    "price": 40,
+    "isActive": true,
+    "order": 5,
+    "category": "shave"
+  },
+  {
+    "name": "Full Service Package",
+    "slug": "full-service-package",
+    "description": "The complete grooming experience: signature cut, beard trim, hot towel shave, facial massage, and styling. Leave looking and feeling your absolute best.",
+    "durationMinutes": 90,
+    "price": 85,
+    "isActive": true,
+    "order": 6,
+    "category": "package"
+  },
+  {
+    "name": "Hair Design & Art",
+    "slug": "hair-design-art",
+    "description": "Custom hair designs, patterns, and artistic details. Pricing varies by complexity - consultation included.",
+    "durationMinutes": 30,
+    "price": 25,
+    "isActive": true,
+    "order": 7,
+    "category": "specialty"
+  },
+  {
+    "name": "Buzz Cut",
+    "slug": "buzz-cut",
+    "description": "Quick and clean buzz cut with guard of your choice. Includes neck shave and line-up.",
+    "durationMinutes": 20,
+    "price": 25,
+    "isActive": true,
+    "order": 8,
+    "category": "haircut"
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "customerName": "James Mitchell",
+    "rating": 5,
+    "review": "Marcus is a true professional. Been coming here for 2 years and never disappointed. Always leaves me looking sharp!",
+    "isPublic": true,
+    "order": 1
+  },
+  {
+    "customerName": "Anthony Rodriguez",
+    "rating": 5,
+    "review": "Best barbershop in Chicago, hands down. The vibe is unmatched and DeAndre always hooks me up with the freshest cuts.",
+    "isPublic": true,
+    "order": 2
+  },
+  {
+    "customerName": "Kevin Thompson",
+    "rating": 5,
+    "review": "Jamal's hot towel shave is incredible. The whole experience is relaxing and professional. This is real barbering.",
+    "isPublic": true,
+    "order": 3
+  },
+  {
+    "customerName": "Chris Washington",
+    "rating": 5,
+    "review": "Terrell has great energy and really listens to what you want. My go-to spot every two weeks!",
+    "isPublic": true,
+    "order": 4
+  },
+  {
+    "customerName": "David Lee",
+    "rating": 5,
+    "review": "Proud to support a Black-owned business that delivers excellence every single time. The booking system makes it so easy too.",
+    "isPublic": true,
+    "order": 5
+  },
+  {
+    "customerName": "Marcus Johnson Sr.",
+    "rating": 5,
+    "review": "Three generations of my family get cut here. That says everything you need to know about the quality and consistency.",
+    "isPublic": true,
+    "order": 6
+  }
+]

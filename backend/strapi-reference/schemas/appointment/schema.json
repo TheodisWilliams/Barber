@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "appointments",
+  "info": {
+    "singularName": "appointment",
+    "pluralName": "appointments",
+    "displayName": "Appointment",
+    "description": "Customer appointments"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "barber": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::barber.barber",
+      "inversedBy": "appointments"
+    },
+    "service": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::service.service",
+      "inversedBy": "appointments"
+    },
+    "startAt": {
+      "type": "datetime",
+      "required": true
+    },
+    "endAt": {
+      "type": "datetime",
+      "required": true
+    },
+    "clientName": {
+      "type": "string",
+      "required": true
+    },
+    "clientEmail": {
+      "type": "email",
+      "required": true
+    },
+    "clientPhone": {
+      "type": "string",
+      "required": true
+    },
+    "notes": {
+      "type": "text"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["confirmed", "cancelled", "completed", "no-show"],
+      "default": "confirmed",
+      "required": true
+    },
+    "confirmationCode": {
+      "type": "string",
+      "unique": true
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "schedule_exceptions",
+  "info": {
+    "singularName": "schedule-exception",
+    "pluralName": "schedule-exceptions",
+    "displayName": "Schedule Exception",
+    "description": "Holidays, closures, and special hours"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "isClosed": {
+      "type": "boolean",
+      "default": true
+    },
+    "customHours": {
+      "type": "json",
+      "default": null
+    },
+    "affectsAllBarbers": {
+      "type": "boolean",
+      "default": true
+    },
+    "barbers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::barber.barber"
+    }
+  }
+}

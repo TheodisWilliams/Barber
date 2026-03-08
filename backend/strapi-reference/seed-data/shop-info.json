@@ -1,0 +1,27 @@
+{
+  "name": "A Cut Above the Rest",
+  "tagline": "Premium Grooming for the Modern Man",
+  "description": "A Cut Above the Rest is a proudly Black-owned barbershop in the heart of Chicago, delivering premium grooming services with a commitment to excellence, community, and style. Our master barbers bring decades of combined experience, blending traditional techniques with modern trends to create looks that boost confidence and turn heads.",
+  "phone": "(312) 555-1234",
+  "email": "info@acutabovetherest.com",
+  "address": {
+    "street": "123 Main Street",
+    "city": "Chicago",
+    "state": "IL",
+    "zip": "60601"
+  },
+  "socialMedia": {
+    "instagram": "acutabovetherest",
+    "facebook": "acutabovetherest",
+    "twitter": ""
+  },
+  "defaultWorkingHours": {
+    "monday": { "enabled": true, "start": "09:00", "end": "18:00" },
+    "tuesday": { "enabled": true, "start": "09:00", "end": "18:00" },
+    "wednesday": { "enabled": true, "start": "09:00", "end": "18:00" },
+    "thursday": { "enabled": true, "start": "09:00", "end": "18:00" },
+    "friday": { "enabled": true, "start": "09:00", "end": "19:00" },
+    "saturday": { "enabled": true, "start": "08:00", "end": "17:00" },
+    "sunday": { "enabled": false, "start": null, "end": null }
+  }
+}
