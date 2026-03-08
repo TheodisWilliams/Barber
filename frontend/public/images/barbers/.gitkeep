@@ -1,0 +1,2 @@
+# This file keeps the barbers directory in git even when empty
+# Note: In production, barber photos should be uploaded via Strapi admin
