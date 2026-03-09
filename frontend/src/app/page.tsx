@@ -3,13 +3,11 @@ import Image from 'next/image';
 import { Scissors, Clock, Star, MapPin } from 'lucide-react';
 import { getTestimonials } from '@/lib/strapi';
 
-// TODO: Replace with actual Unsplash images - these are placeholder URLs
-const HERO_IMAGE = 'https://source.unsplash.com/1600x900/?barbershop,modern';
 const GALLERY_IMAGES = [
-  'https://source.unsplash.com/800x600/?barber,cutting,hair',
-  'https://source.unsplash.com/800x600/?barbershop,interior',
-  'https://source.unsplash.com/800x600/?fade,haircut',
-  'https://source.unsplash.com/800x600/?barber,tools',
+  '/images/Work/shot1.png',
+  '/images/Work/shot2.png',
+  '/images/Work/shot3.png',
+  '/images/Work/shot4.png',
 ];
 
 export default async function HomePage() {
@@ -28,11 +26,13 @@ export default async function HomePage() {
       <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-brand-black/80 to-brand-black/60 z-10" />
         <Image
-          src={HERO_IMAGE}
+          src="/images/backgrounds/BarberWide.png"
           alt="Modern barbershop interior"
           fill
-          className="object-cover"
+          className="object-cover object-center"
           priority
+          quality={90}
+          sizes="100vw"
         />
         <div className="relative z-20 container-custom text-center text-white">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
@@ -132,12 +132,14 @@ export default async function HomePage() {
           <h2 className="text-center mb-12">Our Work</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {GALLERY_IMAGES.map((img, idx) => (
-              <div key={idx} className="relative h-64 overflow-hidden rounded-lg group">
+              <div key={idx} className="relative h-80 overflow-hidden rounded-lg group">
                 <Image
                   src={img}
                   alt={`Gallery image ${idx + 1}`}
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-300"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  quality={85}
                 />
               </div>
             ))}
@@ -170,8 +172,17 @@ export default async function HomePage() {
       )}
 
       {/* CTA Section */}
-      <section className="section-padding bg-brand-black text-white">
-        <div className="container-custom text-center">
+      <section className="relative section-padding text-white overflow-hidden">
+        <div className="absolute inset-0 bg-brand-black/50 z-10" />
+        <Image
+          src="/images/backgrounds/Barbers.png"
+          alt="Barbershop"
+          fill
+          className="object-cover object-center"
+          quality={85}
+          sizes="100vw"
+        />
+        <div className="relative z-20 container-custom text-center">
           <h2 className="mb-6">Ready for Your Best Cut Yet?</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             Book online now and experience the difference that comes with expertise,
