@@ -19,7 +19,15 @@
       "Bash(if exist \"CLAUDE.md\" del \"CLAUDE.md\")",
       "Bash(git init:*)",
       "Bash(git remote add:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nInitial commit: Complete barbershop booking system\n\n- Next.js 14 frontend with TypeScript and Tailwind CSS\n- Strapi v5 backend with SQLite (production-ready for PostgreSQL)\n- Advanced booking system with real-time availability algorithm\n- 7 pages: Home, Services, Barbers, Barber Profile, Book, Contact, Policies\n- 4 API routes for barbers, services, availability, and appointments\n- 11 reusable components including multi-step booking wizard\n- 6 Strapi content types: Barber, Service, Appointment, Testimonial, Schedule Exception, Shop Info\n- Email notifications with Resend integration\n- Mobile-first responsive design\n- Complete documentation for installation and deployment\n- Seed data for 4 barbers, 8 services, and 6 testimonials\nEOF\n)\")",
+      "Bash(git push:*)",
+      "Bash(git commit:*)",
+      "Bash(node -e:*)",
+      "Bash(git rm:*)",
+      "Bash(timeout:*)",
+      "Bash(npm run build:*)",
+      "Bash(node enable-permissions.js:*)"
     ],
     "deny": [],
     "ask": []

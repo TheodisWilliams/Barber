@@ -1,0 +1,191 @@
+=================================================================
+STRAPI ADMIN PANEL CONFIGURATION STEPS
+=================================================================
+
+🌐 Admin Panel URL: http://localhost:1338/admin
+
+=================================================================
+STEP 1: ENABLE USER REGISTRATION
+=================================================================
+
+Navigation: Settings → Advanced Settings
+
+Settings to Configure:
+┌─────────────────────────────────────────────────────────┐
+│ ✅ Enable sign-ups                    [Toggle ON/Blue]  │
+│ ✅ One account per email address      [Keep ON]         │
+│ ❌ Enable email confirmation          [Keep OFF]        │
+│    Default role: Authenticated        [Keep as is]      │
+└─────────────────────────────────────────────────────────┘
+
+Click: [Save]
+
+=================================================================
+STEP 2: PUBLIC ROLE PERMISSIONS (For Guests)
+=================================================================
+
+Navigation: Settings → Roles → Public
+
+APPOINTMENT Permissions:
+┌─────────────────────────────────────────────────────────┐
+│ ✅ create     (Allow guest bookings)                    │
+│ ❌ find       (Hide all appointments)                   │
+│ ❌ findOne    (Hide appointment details)                │
+│ ❌ update     (Cannot modify)                           │
+│ ❌ delete     (Cannot delete)                           │
+└─────────────────────────────────────────────────────────┘
+
+BARBER Permissions:
+┌─────────────────────────────────────────────────────────┐
+│ ✅ find       (View all barbers)                        │
+│ ✅ findOne    (View barber details)                     │
+└─────────────────────────────────────────────────────────┘
+
+SERVICE Permissions:
+┌─────────────────────────────────────────────────────────┐
+│ ✅ find       (View all services)                       │
+│ ✅ findOne    (View service details)                    │
+└─────────────────────────────────────────────────────────┘
+
+SHOP-INFO Permissions:
+┌─────────────────────────────────────────────────────────┐
+│ ✅ find       (View shop information)                   │
+└─────────────────────────────────────────────────────────┘
+
+TESTIMONIAL Permissions:
+┌─────────────────────────────────────────────────────────┐
+│ ✅ find       (View testimonials)                       │
+└─────────────────────────────────────────────────────────┘
+
+Click: [Save]
+
+=================================================================
+STEP 3: AUTHENTICATED ROLE PERMISSIONS (For Logged-in Users)
+=================================================================
+
+Navigation: Settings → Roles → Authenticated
+
+APPOINTMENT Permissions:
+┌─────────────────────────────────────────────────────────┐
+│ ✅ create     (Book new appointments)                   │
+│ ✅ find       (View appointments - filtered by email)   │
+│ ✅ findOne    (View appointment details)                │
+│ ✅ update     (Cancel/modify appointments)              │
+│ ❌ delete     (We use 'update' to cancel)               │
+└─────────────────────────────────────────────────────────┘
+
+BARBER Permissions:
+┌─────────────────────────────────────────────────────────┐
+│ ✅ find       (View all barbers)                        │
+│ ✅ findOne    (View barber details)                     │
+└─────────────────────────────────────────────────────────┘
+
+SERVICE Permissions:
+┌─────────────────────────────────────────────────────────┐
+│ ✅ find       (View all services)                       │
+│ ✅ findOne    (View service details)                    │
+└─────────────────────────────────────────────────────────┘
+
+SHOP-INFO Permissions:
+┌─────────────────────────────────────────────────────────┐
+│ ✅ find       (View shop information)                   │
+└─────────────────────────────────────────────────────────┘
+
+TESTIMONIAL Permissions:
+┌─────────────────────────────────────────────────────────┐
+│ ✅ find       (View testimonials)                       │
+└─────────────────────────────────────────────────────────┘
+
+Click: [Save]
+
+=================================================================
+✅ VERIFICATION CHECKLIST
+=================================================================
+
+Test Registration:
+[ ] Go to http://localhost:3000/register
+[ ] Create new account
+[ ] Redirects to /dashboard
+[ ] Shows "Welcome, [username]!"
+
+Test Login:
+[ ] Logout from dashboard
+[ ] Go to http://localhost:3000/login
+[ ] Login with credentials
+[ ] Redirects to /dashboard
+
+Test Booking:
+[ ] While logged in, click "Book Now"
+[ ] Complete booking
+[ ] See appointment in dashboard
+
+Test Cancellation:
+[ ] Click "Cancel Appointment"
+[ ] Confirm cancellation
+[ ] Appointment moves to "Past Appointments"
+
+Test User Isolation:
+[ ] Create second user account
+[ ] Login as second user
+[ ] Should NOT see first user's appointments
+
+=================================================================
+📧 EMAIL VERIFICATION (OPTIONAL - PRODUCTION ONLY)
+=================================================================
+
+⚠️  Skip this for local development!
+
+Only enable when deploying to production:
+
+1. Settings → Email Plugin
+   - Configure email provider (Sendgrid, Mailgun, etc.)
+   - Add API credentials
+
+2. Settings → Advanced Settings
+   - Enable: "Enable email confirmation"
+   - Set redirection URL
+
+3. Settings → Email Templates
+   - Customize confirmation email
+
+=================================================================
+🔒 SECURITY NOTES
+=================================================================
+
+✅ User Isolation:
+   - API routes filter appointments by user email
+   - Users can only see/modify their own appointments
+
+✅ Protected Routes:
+   - Dashboard requires authentication
+   - Cancel endpoint verifies ownership
+
+✅ Guest Bookings:
+   - Guests can book without account
+   - These bookings not visible in any user dashboard
+   - Only shop owner sees them in Strapi admin
+
+=================================================================
+📌 IMPORTANT URLS
+=================================================================
+
+Local Development:
+- Frontend:     http://localhost:3000
+- Backend:      http://localhost:1338
+- Admin Panel:  http://localhost:1338/admin
+- Register:     http://localhost:3000/register
+- Login:        http://localhost:3000/login
+- Dashboard:    http://localhost:3000/dashboard
+
+=================================================================
+✅ SETUP COMPLETE!
+=================================================================
+
+Your authentication system is ready to use!
+
+Next steps:
+1. Test all functionality locally
+2. Review full documentation in STRAPI_SETUP_GUIDE.md
+3. Deploy to production when ready
+
+=================================================================

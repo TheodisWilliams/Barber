@@ -25,8 +25,17 @@ export default async function BarbersPage() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="bg-brand-black text-white py-20">
-        <div className="container-custom text-center">
+      <section className="relative text-white py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-brand-black/70 z-10" />
+        <Image
+          src="/images/backgrounds/team.png"
+          alt="Our Team"
+          fill
+          className="object-cover object-center"
+          quality={85}
+          sizes="100vw"
+        />
+        <div className="relative z-20 container-custom text-center">
           <h1 className="mb-6">Meet Our Team</h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             Skilled professionals dedicated to delivering exceptional cuts and grooming experiences.

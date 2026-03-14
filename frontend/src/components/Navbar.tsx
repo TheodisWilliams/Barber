@@ -1,12 +1,35 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
-import { Menu, X, Scissors } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Menu, X, Scissors, User } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+
+    // Check authentication status
+    checkAuth();
+  }, []);
+
+  const checkAuth = async () => {
+    try {
+      const response = await fetch('/api/auth/me');
+      setIsAuthenticated(response.ok);
+    } catch {
+      setIsAuthenticated(false);
+    }
+  };
 
   const navLinks = [
     { href: '/', label: 'Home' },
@@ -16,7 +39,9 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-brand-black text-brand-warm shadow-lg">
+    <nav className={`sticky top-0 z-50 text-brand-warm transition-all duration-300 ${
+      isScrolled ? 'bg-brand-black shadow-lg' : 'bg-transparent'
+    }`}>
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -36,12 +61,38 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/book"
-              className="btn btn-secondary"
-            >
-              Book Now
-            </Link>
+            {isAuthenticated ? (
+              <>
+                <Link
+                  href="/dashboard"
+                  className="flex items-center gap-2 text-brand-warm hover:text-brand-gold transition-colors focus-visible-ring rounded px-2 py-1"
+                >
+                  <User className="w-4 h-4" />
+                  Dashboard
+                </Link>
+                <Link
+                  href="/book"
+                  className="btn btn-secondary"
+                >
+                  Book Now
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link
+                  href="/login"
+                  className="text-brand-warm hover:text-brand-gold transition-colors focus-visible-ring rounded px-2 py-1"
+                >
+                  Login
+                </Link>
+                <Link
+                  href="/book"
+                  className="btn btn-secondary"
+                >
+                  Book Now
+                </Link>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -66,7 +117,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-brand-charcoal"
+            className="md:hidden bg-brand-black border-t border-brand-gold/20"
           >
             <div className="container-custom py-4 space-y-4">
               {navLinks.map((link) => (
@@ -79,13 +130,41 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <Link
-                href="/book"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block btn btn-secondary w-full text-center"
-              >
-                Book Now
-              </Link>
+              {isAuthenticated ? (
+                <>
+                  <Link
+                    href="/dashboard"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block py-2 text-brand-warm hover:text-brand-gold transition-colors focus-visible-ring rounded px-2"
+                  >
+                    Dashboard
+                  </Link>
+                  <Link
+                    href="/book"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block btn btn-secondary w-full text-center"
+                  >
+                    Book Now
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link
+                    href="/login"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block py-2 text-brand-warm hover:text-brand-gold transition-colors focus-visible-ring rounded px-2"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    href="/book"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block btn btn-secondary w-full text-center"
+                  >
+                    Book Now
+                  </Link>
+                </>
+              )}
             </div>
           </motion.div>
         )}
